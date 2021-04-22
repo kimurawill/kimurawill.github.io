@@ -1,1 +1,117 @@
-Hello World
+<!doctype html>
+
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Tela cheia iOS e Chrome Android -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+
+
+  <title>Teste de Usabilidade</title>
+  <meta name="description" content="Teste de Usabilidade">
+  <meta name="author" content="Grupo 1">
+
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #figma-container {
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+    iframe {
+      height: calc(100vmax + 50px);
+      max-width: 56.25vmax;
+      width: 100vmin;
+      display: block;
+      margin: auto;
+      border: none;
+    }
+    #inicio {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #272727;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      padding: 2rem;
+    }
+    #inicio p {
+      margin: 2rem;
+      text-align: center;
+      color: #fff;
+    }
+    button {
+      background-color: #fff;
+      color: #272727;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="inicio">
+    <button id="iniciar">
+      Iniciar o teste
+    </button>
+    <p>
+      Se você estiver usando Android, seu dispositivo entrará em modo de tela cheia.
+    </p>
+  </div>
+  <div id="figma-container" class="d-none">
+    <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FbFRQqUcRINxn5T8dchUp9t%2FProt%25C3%25B3tipo-Naveg%25C3%25A1vel-Grupo-01-5a-Forma%25C3%25A7%25C3%25A3o-em-UX%3Fnode-id%3D564%253A931%26scaling%3Dscale-down%26page-id%3D526%253A656" id="prototipo"></iframe>
+  </div>
+  <!-- <script src="js/scripts.js"></script> -->
+
+
+  <script>
+
+  var goFS = document.getElementById("iniciar");
+  goFS.addEventListener("click", function() {
+    toggleFullScreen();
+    var figma = document.getElementById("figma-container");
+    var inicio = document.getElementById("inicio");
+    inicio.style.display = "none";
+
+    // document.body.requestFullscreen();
+    // document.documentElement.requestFullscreen();
+    console.log('fullscreen');
+  }, false);
+
+  function toggleFullScreen() {
+    var doc = window.document;
+    var docEl = doc.documentElement;
+
+    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+    if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+      requestFullScreen.call(docEl);
+    }
+    else {
+      cancelFullScreen.call(doc);
+    }
+  }
+
+  </script>
+</body>
+</html>
