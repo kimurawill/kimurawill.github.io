@@ -63,6 +63,7 @@
       padding: 1rem;
       font-size: 1rem;
       font-weight: 700;
+      margin: 10px;
     }
   </style>
 
@@ -71,7 +72,10 @@
 <body>
   <div id="inicio">
     <button id="iniciar">
-      Iniciar o teste
+      Iniciar em tela cheia
+    </button>
+    <button id="iniciar-normal">
+      Iniciar normal
     </button>
     <p>
       Se você estiver usando Android, seu dispositivo entrará em modo de tela cheia.
@@ -84,6 +88,13 @@
 
 
   <script>
+
+  var normal = document.getElementById("iniciar-normal");
+  normal.addEventListener("click", function() {
+    var figma = document.getElementById("figma-container");
+    var inicio = document.getElementById("inicio");
+    inicio.style.display = "none";
+  }, false);
 
   var goFS = document.getElementById("iniciar");
   goFS.addEventListener("click", function() {
